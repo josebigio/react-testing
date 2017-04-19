@@ -1,4 +1,4 @@
-import _$ from 'jquery';
+/*import _$ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
@@ -33,4 +33,14 @@ $.fn.simulate = function(eventName, value) {
   TestUtils.Simulate[eventName](this[0]);
 };
 
-export {renderComponent, expect};
+export {renderComponent, expect};*/
+
+import chaiEnzyme from 'chai-enzyme';
+import chai from 'chai';
+import jsdom from 'jsdom';
+
+
+chai.use(chaiEnzyme());
+const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
+global.document = doc;
+global.window = doc.defaultView;

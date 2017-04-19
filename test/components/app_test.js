@@ -1,14 +1,22 @@
-import { renderComponent , expect } from '../test_helper';
+import { expect } from 'chai';
+import { shallow, mount } from 'enzyme';
+import React from 'react';
+
 import App from '../../src/components/app';
+import CommentBox from '../../src/components/comment_box';
 
-describe('App' , () => {
-  let component;
+let component;
 
+
+
+describe('Testing the App component', () => {
   beforeEach(() => {
-    component = renderComponent(App);
+    component = shallow(<App />)
   });
 
-  it('renders something', () => {
-    expect(component).to.exist;
+  it('shows a comment box', () => {
+    expect(component.find(<CommentBox />)).to.exist;
   });
+
 });
+
